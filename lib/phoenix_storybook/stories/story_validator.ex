@@ -653,15 +653,6 @@ defmodule PhoenixStorybook.Stories.StoryValidator do
           "template in variation_group #{inspect(group_id)} must be a binary"
         )
       end
-
-      for %Variation{id: variation_id, template: template}
-          when template not in [nil, false, :unset] <-
-            variations do
-        compile_error!(
-          file_path,
-          "template in a group variation cannot be set (variation #{inspect(variation_id)}, group #{inspect(group_id)})"
-        )
-      end
     end
   end
 
